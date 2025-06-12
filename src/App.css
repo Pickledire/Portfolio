@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+html, body{
+  background-color:  black;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}

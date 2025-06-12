@@ -1,0 +1,30 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    min-width: 500px;
+    height: 80px;
+    position: fixed;
+    top: 30px;
+    z-index: 100;
+    padding: 0 20px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+  }
+
+.nav-button{
+    color: #ffffff;
+    background-color: transparent;
+    box-shadow: inset 0 0 10px 0 hsla(0, 0%, 100%, 0.411);
+    border: 1px solid #000000;
+    padding: 10px 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    pointer-events: all !important;
+}
