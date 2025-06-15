@@ -1,0 +1,19 @@
+.spline-location{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 1px solid #ffffff;
+}
+
+.location-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    grid-area: c;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid #ffffff54;
+}

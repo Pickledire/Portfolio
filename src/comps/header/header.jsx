@@ -1,28 +1,38 @@
 import React from 'react'
 import './header.css'
 import Spline from '@splinetool/react-spline'
+import '@fontsource/press-start-2p'
+import { BsGithub } from 'react-icons/bs'
+import { BsLinkedin } from 'react-icons/bs'
+import { BsTwitterX } from 'react-icons/bs'
 
 const Header = () => {
+  const openGithub = () => {
+    window.open('https://github.com/Pickledire', '_blank');
+  };
+
+  const openLinkedIn = () => {
+    window.open('https://www.linkedin.com/in/brenden-edwards-889b141a9/', '_blank');
+  };
+
   return (
-    <div className='header'>
+    <div className='header' id='1'>
 
       
 
       <Spline 
         className='spline'
         scene="https://prod.spline.design/t8b1ni1pAumesRlO/scene.splinecode"
-        onLoad={() => console.log('Spline scene loaded successfully')}
-        onError={(error) => console.error('Error loading Spline scene:', error)}
       />
 
       <div className='info'>
         
-        <h1>Future Frontend Developer</h1>
-        <p>I am a future frontend developer, creating beautiful and functional websites.</p>
+        <h1>Future <span className='highlight'>Frontend</span> Developer</h1>
+        <span>I am a future frontend developer, creating beautiful and functional websites.</span>
         <div className='btn-container'>
-          <button className='btn-header'>Github</button>
-          <button className='btn-header'>LinkedIn</button>
-          <button className='btn-header'>X</button>
+          <button className='btn-header' onClick={openGithub}><BsGithub /></button>
+          <button className='btn-header' onClick={openLinkedIn}><BsLinkedin /></button>
+          <button className='btn-header'><BsTwitterX /></button>
         </div>
       </div>
     </div>
