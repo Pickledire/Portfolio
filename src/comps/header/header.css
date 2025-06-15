@@ -40,7 +40,7 @@
     justify-content: space-evenly;
     gap: 10px;
     width: 50%;
-    pointer-events: all;
+    pointer-events: none;
 }
 
 .btn-header{
@@ -52,4 +52,6 @@
     background-color: transparent;
     color: #fff;
     font-size: 1rem;
+    cursor: pointer;
+    pointer-events: all;
 }

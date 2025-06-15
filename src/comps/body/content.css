@@ -65,16 +65,26 @@
     gap: 100px;
     animation: slideInFromLeft 3s forwards;
     animation-timeline: scroll(root block);
-    animation-range-start: 0px;
-    animation-range-end: 650px;
+    animation-range-start: -20px;
+    animation-range-end: 700px;
     animation-duration: 3s;
     overflow: visible;
 }
 
+.content-info-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.267);
+}
+
 .content-info-img:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 30px 0px hsla(0, 0%, 100%, 0.11);
     transform: scale(1.1);
     transition: transform 0.5s ease-in-out;
 }
+
 
 
 @keyframes slideInFromRight {
