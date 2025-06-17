@@ -54,6 +54,12 @@ const ProjectCard = ({ projects = [], currentProjectIndex = 0, onProjectChange }
         }
     }
 
+    const handleSeeMore = () => {
+        // You can add logic here to open project details, navigate to project page, etc.
+        console.log('See more clicked for:', currentProject.title)
+        // Example: window.open(`/projects/${currentProject.folder}`, '_blank')
+    }
+
     // Animation variants
     const imageVariants = {
         initial: { opacity: 0, scale: 0.3, y: 50 },
@@ -116,6 +122,7 @@ const ProjectCard = ({ projects = [], currentProjectIndex = 0, onProjectChange }
                 </motion.div>
             </AnimatePresence>
 
+            {/* All buttons in the same container for inline positioning */}
             <div className="pojbuttons">
                 <div className="bcontainer">
                     <motion.button 
@@ -128,6 +135,17 @@ const ProjectCard = ({ projects = [], currentProjectIndex = 0, onProjectChange }
                         Back
                     </motion.button>
                 </div>
+                
+                <motion.button 
+                    className="see-more-button"
+                    variants={buttonVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    onClick={handleSeeMore}
+                >
+                    See more
+                </motion.button>
+                
                 <div className="bcontainer">
                     <motion.button 
                         className="button"

@@ -13,6 +13,8 @@
     "@fontsource/inter": "^5.2.6",
     "@fontsource/petit-formal-script": "^5.2.6",
     "@fontsource/press-start-2p": "^5.2.6",
+    "@react-three/drei": "^10.3.0",
+    "@react-three/fiber": "^9.1.2",
     "@splinetool/react-spline": "^4.0.0",
     "framer-motion": "^12.18.1",
     "react": "^19.1.0",
@@ -21,7 +23,8 @@
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.1",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "three": "^0.177.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

@@ -15,6 +15,10 @@ const Header = () => {
     window.open('https://www.linkedin.com/in/brenden-edwards-889b141a9/', '_blank');
   };
 
+  const openTwitter = () => {
+    window.open('https://x.com/Pickledire', '_blank');
+  };
+
   return (
     <div className='header' id='1'>
 
@@ -32,7 +36,7 @@ const Header = () => {
         <div className='btn-container'>
           <button className='btn-header' onClick={openGithub}><BsGithub /></button>
           <button className='btn-header' onClick={openLinkedIn}><BsLinkedin /></button>
-          <button className='btn-header'><BsTwitterX /></button>
+          <button className='btn-header' onClick={openTwitter}><BsTwitterX /></button>
         </div>
       </div>
     </div>
