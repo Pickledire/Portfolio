@@ -1,12 +1,12 @@
 .location-card-container{
     width: 100%;
-    height: 50vh; /* Set a specific height for the 3D canvas */
+    height: 50vh;
     position: relative;
-    border: 1px solid #ffffff;
+    border: 1px solid #757575cc;
     border-radius: 20px;
     overflow: hidden;
-    grid-area: c; /* This should match the grid area in content.css */
-    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    grid-area: c;
+    background: black;
 }
 
 .about-info{
@@ -19,8 +19,6 @@
     left: 910px;
     width: 50%;
     height: 100%;
-    background: transparent;
-    padding: 20px;
-    border: 1px solid #ffffff54;
+    background: transparent;    border-radius: 20px;
     z-index: 1;
 }
