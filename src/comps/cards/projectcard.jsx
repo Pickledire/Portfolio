@@ -121,43 +121,6 @@ const ProjectCard = ({ projects = [], currentProjectIndex = 0, onProjectChange }
                     />
                 </motion.div>
             </AnimatePresence>
-
-            {/* All buttons in the same container for inline positioning */}
-            <div className="pojbuttons">
-                <div className="bcontainer">
-                    <motion.button 
-                        className="button"
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        onClick={prevProject}
-                    >
-                        Back
-                    </motion.button>
-                </div>
-                
-                <motion.button 
-                    className="see-more-button"
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                    onClick={handleSeeMore}
-                >
-                    See more
-                </motion.button>
-                
-                <div className="bcontainer">
-                    <motion.button 
-                        className="button"
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        onClick={nextProject}
-                    >
-                        Next
-                    </motion.button>
-                </div>
-            </div>
         </motion.div>
     )
 }

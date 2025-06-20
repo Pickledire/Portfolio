@@ -105,57 +105,6 @@
     overflow: visible;
 }
 
-.tech-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.tech-icon::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 140px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-    top: -40px;
-    left: -100%;
-    transition: left 0.5s;
-}
-
-.tech-icon:hover::before {
-    left: 100%;
-}
-
-.tech-icon.html {
-    background: linear-gradient(135deg, #e34c26, #f06529);
-    color: white;
-}
-
-.tech-icon.js {
-    background: linear-gradient(135deg, #f7df1e, #f0db4f);
-    color: #323330;
-}
-
-.tech-icon.react {
-    background: linear-gradient(135deg, #61dafb, #21d4fd);
-    color: #20232a;
-}
-
-.tech-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
 .tech-description {
     font-size: 0.9rem;
     color: #8b949e;

@@ -71,7 +71,7 @@ const EarthModel = () => {
 
     return (
         <mesh ref={earthRef} position={[-15, 0, 0]}>
-            <primitive object={scene} scale={0.8} />
+            <primitive object={scene} scale={2.5} />
         </mesh>
     );
 };

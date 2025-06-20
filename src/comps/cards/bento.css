@@ -1,0 +1,200 @@
+.content-container-2 {
+    width: 100%;
+    max-width: 1200px;
+    padding: 80px 60px;
+    margin-top: 60px;
+}
+
+.bento-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.site-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.bento-title {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 16px 0 0 0;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.highlight-text {
+    background: linear-gradient(45deg, #7700ff, #e100ff, #ffb88f, #ffdca9);
+    background-size: 200% 100%;
+    animation: highlight 5s infinite linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: italic;
+    transition: all 5s ease-in-out;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 20px;
+    grid-template-areas:
+        "uses uses guestbook music"
+        "contact contact contact music";
+}
+
+.bento-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    border-color: #555;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.uses-card {
+    grid-area: uses;
+}
+
+.guestbook-card {
+    grid-area: guestbook;
+}
+
+.music-card {
+    grid-area: music;
+    grid-row: span 2;
+}
+
+.contact-card {
+    grid-area: contact;
+}
+
+.card-header {
+    margin-bottom: 16px;
+}
+
+.card-label {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #333;
+    border: 1px solid #555;
+}
+
+.icon-vscode {
+    background: linear-gradient(135deg, #0078d4, #005a9f);
+}
+
+.icon-figma {
+    background: linear-gradient(135deg, #f24e1e, #a259ff);
+}
+
+.icon-chrome {
+    background: linear-gradient(135deg, #4285f4, #34a853);
+}
+
+.guestbook-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.message-bubble {
+    height: 12px;
+    background: #333;
+    border-radius: 6px;
+    border: 1px solid #555;
+}
+
+.message-bubble:first-child {
+    width: 80%;
+}
+
+.message-bubble:last-child {
+    width: 60%;
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+}
+
+.album-cover {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    margin: 0 auto;
+    border: 1px solid #555;
+}
+
+.track-info {
+    text-align: center;
+}
+
+.track-title {
+    font-size: 12px;
+    color: #888;
+    margin: 0 0 8px 0;
+}
+
+.artist-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 4px 0;
+}
+
+.album-name {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+}
+
+.contact-visual {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b, #ff4081);
+    border-radius: 50%;
+    border: 1px solid #555;
+}

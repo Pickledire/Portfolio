@@ -1,0 +1,63 @@
+.skills-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 650px;
+    left: 0;
+    z-index: 10;
+}
+
+.skills-main-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.sauce{
+    background: linear-gradient(45deg, #7700ff, #e100ff, #ffb88f, #ffdca9);
+    background-size: 200% 100%;
+    animation: highlight 5s infinite linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes highlight {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.tech-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tech-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.39);
+    padding: 9px;
+    gap: 10px;
+}
+    
+
+.react { color: #61DAFB; }
+.nextjs { color: #fff; }
+.typescript { color: #3178C6; }
+.tailwind { color: #06B6D4; }
+.nodejs { color: #339933; }
+.git { color: #F05032; }
+.github { color: #fff; }
+.vercel { color: #fff; }
+.javascript { color: #F7DF1E; }
+.figma { color: white; }

@@ -36,10 +36,10 @@ function App() {
     
     <div className='app'>
       <div className='nav'>
-        <button onClick={() => scrollToElement('1')} className='nav-button'><BsFillHouseDoorFill /></button>
-        <button onClick={() => scrollToElement('2')} className='nav-button'><BsFileCodeFill /></button>
-        <button onClick={() => scrollToElement('3')} className='nav-button'><BsEnvelopeFill /></button>
-        <button onClick={() => downloadResume('resume.pdf')} className='nav-button'><BsFilePdfFill /></button>
+        <button onClick={() => scrollToElement('1')} className='nav-button'>Home</button>
+        <button onClick={() => scrollToElement('2')} className='nav-button'>Projects</button>
+        <button onClick={() => scrollToElement('3')} className='nav-button'>Contact</button>
+        <button onClick={() => downloadResume('resume.pdf')} className='nav-button'>Resume</button>
       </div>
       <Header />
       <Content />
