@@ -46,6 +46,7 @@ const Footer = () => {
           </button>
           <p className='availability'>I'm available for full-time roles & freelance projects.</p>
           <p className='description'>I thrive on crafting dynamic web applications, and delivering seamless user experiences.</p>
+          <div className='gradient-line'></div>
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import { useGLTF } from '@react-three/drei'
 import AboutMeCard from './aboutmecard'
 
 
-const EarthModel = () => {
+const EarthModel = ({ canvasRef }) => {
     const earthRef = useRef();
     const { scene } = useGLTF('/3D/Earth.glb')
     
@@ -20,12 +20,13 @@ const EarthModel = () => {
 
     // Mouse drag interaction
     React.useEffect(() => {
-        const canvas = document.querySelector('canvas');
+        const canvas = canvasRef.current;
+        if (!canvas) return;
         
         const handleMouseDown = (e) => {
             isDragging.current = true;
             previousMouse.current = { x: e.clientX, y: e.clientY };
-            if (canvas) canvas.style.cursor = 'grabbing';
+            canvas.style.cursor = 'grabbing';
             e.preventDefault(); // Prevent text selection
         };
 
@@ -44,19 +45,19 @@ const EarthModel = () => {
 
         const handleMouseUp = () => {
             isDragging.current = false;
-            if (canvas) canvas.style.cursor = 'grab';
+            canvas.style.cursor = 'grab';
         };
 
-        document.addEventListener('mousedown', handleMouseDown);
+        canvas.addEventListener('mousedown', handleMouseDown);
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseup', handleMouseUp);
         
         return () => {
-            document.removeEventListener('mousedown', handleMouseDown);
+            canvas.removeEventListener('mousedown', handleMouseDown);
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
         };
-    }, []);
+    }, [canvasRef]);
 
     useFrame(() => {
         if (earthRef.current) {
@@ -77,9 +78,12 @@ const EarthModel = () => {
 };
 
 const LocationCard = () => {
+    const canvasRef = useRef();
+
     return (
         <div className='location-card-container'>
             <Canvas
+                ref={canvasRef}
                 camera={{ position: [12, 0, 16], fov: 25 }}
                 style={{ 
                     width: '100%', 
@@ -90,10 +94,10 @@ const LocationCard = () => {
             >
                 <ambientLight intensity={2.5} />
                 <pointLight position={[1, 1, 1]} />
-                <EarthModel />
+                <EarthModel canvasRef={canvasRef} />
             </Canvas>
-        <div className='about-info'>
-                    <AboutMeCard />
+            <div className='about-info'>
+                    
             </div>
         </div>
     )

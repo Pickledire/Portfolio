@@ -12,7 +12,7 @@
 }
 
 html, body{
-  background-color:  black;
+  background-color:  radial-gradient(circle, rgba(0,0,0,1) 0%, rgb(243, 243, 243) 100%);
 }
 
 ::-webkit-scrollbar{

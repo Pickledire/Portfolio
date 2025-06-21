@@ -1,4 +1,4 @@
-import { SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiNodedotjs, SiGit, SiGithub, SiVercel, SiFigma } from 'react-icons/si'
+import { SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiNodedotjs, SiGit, SiGithub, SiVercel, SiFigma, SiHtml5, SiCss3, SiFramer } from 'react-icons/si'
 import './skills.css'
 
 const Skills = () => {
@@ -42,6 +42,18 @@ const Skills = () => {
             <div className='tech-item'>
                 <span className='tech-icon figma'><SiFigma /></span>
                 <span className='tech-name'>Figma</span>
+            </div>
+            <div className='tech-item'>
+                <span className='tech-icon chrome'><SiHtml5 /></span>
+                <span className='tech-name'>HTML</span>
+            </div>
+            <div className='tech-item'>
+                <span className='tech-icon css'><SiCss3 /></span>
+                <span className='tech-name'>CSS</span>
+            </div>
+            <div className='tech-item'>
+                <span className='tech-icon framer'><SiFramer /></span>
+                <span className='tech-name'>Framer</span>
             </div>
         </div>
 </div>

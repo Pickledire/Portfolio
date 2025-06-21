@@ -5,10 +5,11 @@
     height: 65vh;
     background-color: #000000;
     color: #ffffff;
-    border: 1px solid #ffffff59;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     grid-area: b;
     overflow: hidden;
     position: relative;
+    border-radius: 25px;
 }
 
 .markdown-container {

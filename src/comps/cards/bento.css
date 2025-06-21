@@ -1,8 +1,9 @@
-.content-container-2 {
+.bento-container {
     width: 100%;
     max-width: 1200px;
     padding: 80px 60px;
     margin-top: 60px;
+    overflow: visible;
 }
 
 .bento-header {
@@ -45,17 +46,18 @@
     grid-template-areas:
         "uses uses guestbook music"
         "contact contact contact music";
+    overflow: visible;
 }
 
 .bento-card {
     background: #1a1a1a;
     border: 1px solid #333;
-    border-radius: 16px;
     padding: 24px;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
     cursor: pointer;
+    border-radius: 25px;
 }
 
 .bento-card:hover {

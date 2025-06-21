@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './header.css'
 import Spline from '@splinetool/react-spline'
@@ -33,6 +34,7 @@ const Header = () => {
   };
 
   return (
+    <>
     <div className='header' id='1'>
       <Spline 
         className='spline'
@@ -51,7 +53,9 @@ const Header = () => {
           </div>
         </div>
         <Skills />
-    </div>
+        <div className='gradient-line-2'></div>
+        </div>
+    </>
   )
 }
 

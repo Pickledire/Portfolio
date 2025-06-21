@@ -5,9 +5,8 @@ const Bento = () => {
   return (
 
 
-<div className='content-container-2'>
+<div className='bento-container'>
 <div className='bento-header'>
-  <span className='site-label'>MY SITE</span>
   <h2 className='bento-title'>
     Explore, experiment<br />
     <span className='highlight-text'>&& say hello</span>

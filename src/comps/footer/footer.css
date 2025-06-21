@@ -3,8 +3,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 60vh;
-    background: linear-gradient(180deg, #000000 40%, #4a009e 200%);
+    min-height: 100vh;
+    background: #000000;
     color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -31,6 +31,7 @@
     padding: 0 20px;
     position: relative;
     z-index: 1;
+    margin-top: 150px;
 }
 
 .footer-content h1 {
@@ -52,8 +53,9 @@
 }
 
 @keyframes highlight {
-    0%, 100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .footer-content h2 {
@@ -78,6 +80,7 @@
     margin: 20px 0;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
 }
 
 .get-in-touch-btn::before {
@@ -338,4 +341,20 @@
     .footer-content {
         padding: 0 15px;
     }
+}
+
+.gradient-line {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #7700ff, #e100ff, #ffb88f, #ffdca9);
+    background-size: 200% 100%;
+    animation: highlight 5s infinite linear;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+@keyframes highlight {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
