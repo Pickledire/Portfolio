@@ -1,12 +1,44 @@
-# React + Vite
+## Brenden Edwards – Frontend Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains my personal frontend portfolio, built with **React** and **Vite**.  
+The goal of this project is to showcase my design sense, animation work, and ability to build interactive, production‑ready UI components.
 
-Currently, two official plugins are available:
+### Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Hero section with smooth scrolling**  
+  Powered by Lenis for buttery scroll, a dark radial‑gradient hero introduces the site and anchors navigation.
 
-## Expanding the ESLint configuration
+- **Interactive “Explore” bento grid**  
+  - Custom audio player for a book excerpt with play, progress, and time controls.  
+  - Spotify playlist embed connected to the global volume control.  
+  - A GitHub contribution calendar styled to match the portfolio’s green highlight theme.  
+  - Ambient quote and layout designed as a modern bento grid.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Projects vertical showcase**  
+  - Scroll‑driven gallery of projects (Partiva, Sidious, Portfolio, Epic RPG Adventure, Star Wars Battle Simulator).  
+  - Sticky “My Curated work” panel that updates with project title, description, feature list, and tech stack as you scroll.  
+  - Project screenshots with subtle hover effects and a custom cursor, plus a modal for future deep‑dive content.
+
+- **Contact / “From Concept to Creation” footer**  
+  - Branded call‑to‑action with gradient typography.  
+  - Modal contact form with social links, styled inputs, and responsive layout for smaller screens.
+
+### Tech Stack
+
+- **Frontend**: React 19, Vite  
+- **Styling & Animation**: Hand‑crafted CSS, Framer Motion, Lenis (smooth scroll)  
+- **Markdown & Docs**: `react-markdown`, `remark-gfm`, `rehype-raw` for project documentation rendering  
+- **3D & Visuals**: `@react-three/fiber`, `three`, and Spline integration for future 3D scenes
+
+### Running the Project
+
+```bash
+npm install
+npm run dev
+```
+
+The app runs on `http://localhost:5173` by default.
+
+### Purpose
+
+This portfolio is an evolving playground where I refine my UI/UX, animation, and frontend architecture skills while presenting my work in a way that feels cohesive, performant, and on‑brand.
