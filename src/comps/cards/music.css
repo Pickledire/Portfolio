@@ -1,0 +1,193 @@
+.music-container {
+    border-radius: 16px;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
+.music-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Embed layout */
+.spotify-embed-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.spotify-logo {
+    display: flex;
+    align-items: center;
+}
+
+.music-title {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.album-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.album-artwork {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #1db954, #1ed760);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.vinyl-record {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #000 30%, #333 31%, #333 40%, #000 41%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 8s linear infinite;
+}
+
+.vinyl-center {
+    width: 12px;
+    height: 12px;
+    background: #1db954;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.song-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.artist-name {
+    color: #b3b3b3;
+    font-size: 0.85rem;
+    margin: 0 0 0.15rem 0;
+    font-weight: 500;
+}
+
+.album-name {
+    color: #888;
+    font-size: 0.75rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.music-controls {
+    margin-bottom: 1rem;
+    overflow: visible;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    overflow: visible;
+}
+
+.progress-fill {
+    width: 35%;
+    height: 100%;
+    background: #1db954;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    overflow: visible;
+}
+
+.time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #b3b3b3;
+    overflow: visible;
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    overflow: visible;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    overflow: visible;
+    }
+
+.control-btn.prev,
+.control-btn.next {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
+}
+
+.control-btn.play {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    background: #1db954;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.control-btn.play:hover {
+    background: #1ed760;
+}

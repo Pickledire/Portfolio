@@ -1,0 +1,12 @@
+{
+    "title": "Epic RPG Adventure",
+    "description": "An immersive text-based RPG game featuring character progression, epic quests, and strategic combat in a fantasy world.",
+    "features": [
+      "Character creation and customization",
+      "Turn-based combat system",
+      "Quest and storyline progression",
+      "Inventory and equipment management",
+      "Interactive game world exploration"
+    ],
+    "techStack": ["JavaScript", "HTML5", "CSS3", "Local Storage", "Canvas API"]
+  }

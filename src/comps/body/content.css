@@ -1,0 +1,18 @@
+.content {
+    margin-top: 20vh;
+    background-color: #000000;
+}
+
+.bento-section {
+    background-color: #000000;
+}
+
+/* Light mode styling */
+.light-mode .content {
+    background-color: #ffffff;
+    color: rgb(7, 7, 7);
+}
+
+.light-mode .bento-section {
+    background-color: #ffffff;
+}

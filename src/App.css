@@ -1,0 +1,189 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  overflow-x: hidden;
+}
+
+html, body{
+  background-color:  rgb(0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Theme switching */
+.app.light-mode {
+  background-color: #ffffff;
+}
+
+.app.light-mode html,
+.app.light-mode body {
+  background-color: #ffffff !important;
+}
+
+/* Light mode text and element styling */
+.app.light-mode .nav-button {
+  color: rgb(7, 7, 7);
+}
+
+.app.light-mode .theme-toggle,
+.app.light-mode .resume-download {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
+}
+
+.app.light-mode .theme-toggle:hover,
+.app.light-mode .resume-download:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Theme toggle button - top right */
+.theme-toggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Resume download button - below theme toggle */
+.resume-download {
+  position: fixed;
+  top: 90px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.resume-download:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Volume slider under toggle + resume */
+.volume-slider-wrapper {
+  position: fixed;
+  top: 40px;
+  right: 110px;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  z-index: 1000;
+  font-size: 0.75rem;
+  color: #ffffff;
+  overflow: visible;
+}
+
+.volume-label {
+  opacity: 0.85;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #f9fafb;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+  margin-left: 4px;
+}
+
+.volume-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1db954 0%, #16a34a 50%, #064e3b 100%);
+}
+
+.volume-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1db954 0%, #16a34a 50%, #064e3b 100%);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #1db954;
+  margin-top: -5px;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.7);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #1db954;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.7);
+}
+
+/* Bento section styling */
+.bento-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

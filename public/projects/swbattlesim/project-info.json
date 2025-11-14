@@ -1,0 +1,14 @@
+{
+  "title": "Star Wars Battle Simulator",
+  "description": "A cinematic Star Wars-inspired battle simulator showcasing animated UI, squad management panels, and responsive layouts for epic galactic encounters.",
+  "features": [
+    "Squad lineup and enemy formation panels",
+    "HUD-style stats and status indicators",
+    "Responsive layout designed for both desktop and tablet",
+    "Hover and focus states that enhance the sci‑fi feel",
+    "Emphasis on clean component architecture and reusability"
+  ],
+  "techStack": ["React", "Vite", "TypeScript", "CSS Modules", "Framer Motion"]
+}
+
+

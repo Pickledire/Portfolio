@@ -1,0 +1,12 @@
+{
+  "title": "Personal Portfolio",
+  "description": "A modern, responsive portfolio website showcasing web development projects with smooth animations and interactive elements.",
+  "features": [
+    "Responsive design that works on all devices",
+    "Smooth scroll animations and transitions", 
+    "Interactive project showcase",
+    "Modern UI/UX design principles",
+    "Dynamic content loading"
+  ],
+  "techStack": ["React", "Vite", "CSS3", "JavaScript", "React Router"]
+}

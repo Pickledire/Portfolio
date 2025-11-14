@@ -1,0 +1,12 @@
+{
+    "title": "Partiva",
+    "description": "A comprehensive event planning and management platform designed to streamline the process of organizing and coordinating events of all sizes.",
+    "features": [
+      "Event creation and management dashboard",
+      "Real-time collaboration tools",
+      "Automated scheduling and reminders",
+      "Guest management and RSVP tracking",
+      "Budget tracking and expense management"
+    ],
+    "techStack": ["React", "Node.js", "MongoDB", "Express", "Socket.io", "Tailwind CSS"]
+  }

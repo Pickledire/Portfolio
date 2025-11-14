@@ -1,0 +1,227 @@
+.bento-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 80px 60px;
+    margin-top: 60px;
+    overflow: visible;
+}
+
+.bento-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+
+.bento-title {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 16px 0 0 0;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.bento-title .highlight-text {
+    animation: highlight 5s infinite linear;
+    background: linear-gradient(45deg, #7700ff, #e100ff, #ffb88f, #ffdca9);
+    background-size: 200% 100%;
+    font-size: 2.5rem;
+    padding: 5px;
+    font-family: cursive;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes highlight {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 20px;
+    grid-template-areas:
+        "book book quote music"
+        "github github github music";
+    overflow: visible;
+}
+
+.bento-card {
+    background: rgb(7, 7, 7);
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(310deg, #1db954 0%, #191414 40%, #000000 100%);
+    border-radius: 15px;
+    grid-area: book;
+    color: #ffffff;
+}
+
+.quote-card {
+    background: #1db9548c;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    min-height: 200px;
+    grid-area: quote;
+}
+
+
+
+.quote-card p:first-child {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+}
+
+.quote-card p:first-child::before {
+    content: '"';
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    font-family: serif;
+}
+
+.quote-card p:last-child {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+/* Responsive styling for quote card */
+@media (max-width: 768px) {
+    .quote-card {
+        padding: 1.5rem;
+        min-height: 150px;
+    }
+    
+    .quote-card p:first-child {
+        font-size: 1.1rem;
+    }
+    
+    .quote-card p:first-child::before {
+        font-size: 2rem;
+        top: -0.5rem;
+        left: -0.5rem;
+    }
+}
+
+/* Light mode styling */
+.light-mode .bento-container {
+    background-color: #ffffff;
+}
+
+.light-mode .bento-title {
+    color: rgb(7, 7, 7);
+}
+
+.light-mode .bento-card {
+    background: #ffffff;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+.light-mode .book-card {
+    background: linear-gradient(310deg, #1db954 0%, #191414 40%, #000000 100%);
+}
+
+.light-mode .quote-card {
+    background: #1db954;
+}
+
+.light-mode .github-card {
+    background: #ffffff;
+}
+
+.music-card {
+    grid-area: music;
+    grid-row: span 2;
+    padding: 0px !important;
+    margin: 0px !important;
+    border: 1px solid rgb(7, 7, 7);
+}
+
+.contact-card {
+    grid-area: contact;
+}
+
+.github-card {
+    background: linear-gradient(135deg,
+        #070707 0%,
+        #0a0a0a 15%,
+        #000000 23%,
+        #1db95493 35%,
+        #1db95498 50%,
+        #1db954a2 70%,
+        #000000 90%,
+        #0a0a0a 96%,
+        #070707 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    grid-area: github;
+}
+
+/* GitHub activity calendar styling */
+.github-activity-container {
+    width: 100%;
+}
+
+.github-card .react-activity-calendar__scroll-container {
+    max-width: 100%;
+    overflow: auto hidden;
+}
+
+.github-card .react-activity-calendar__calendar {
+    display: block;
+    overflow: visible;
+}
+
+/* Improve label contrast */
+.github-card .react-activity-calendar__legend-month {
+    color: #ffffff;
+}
+.github-card .react-activity-calendar__legend-month text {
+    fill: #ffffff;
+}
+.github-card .react-activity-calendar__footer {
+    color: #ffffff;
+}

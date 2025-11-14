@@ -1,0 +1,12 @@
+{
+  "title": "Vader Command Center",
+  "description": "A dark-themed command interface inspired by the Star Wars universe, featuring advanced UI components and interactive controls.",
+  "features": [
+    "Imperial-themed dark interface",
+    "Advanced control panels and dashboards",
+    "Real-time data visualization",
+    "Interactive command interfaces",
+    "Cinematic visual effects"
+  ],
+  "techStack": ["React", "Three.js", "WebGL", "SCSS", "JavaScript", "CSS Animations"]
+}

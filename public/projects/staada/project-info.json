@@ -1,0 +1,12 @@
+{
+  "title": "Staada Platform",
+  "description": "A modern web platform focused on delivering seamless user experiences with clean design and intuitive navigation.",
+  "features": [
+    "Clean and modern interface design",
+    "Optimized performance and loading times",
+    "Mobile-first responsive design",
+    "Intuitive user navigation",
+    "Cross-browser compatibility"
+  ],
+  "techStack": ["React", "TypeScript", "Styled Components", "Redux", "Webpack"]
+}
