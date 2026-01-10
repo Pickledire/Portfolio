@@ -28,7 +28,7 @@ The goal of this project is to showcase my design sense, animation work, and abi
 - **Frontend**: React 19, Vite  
 - **Styling & Animation**: Hand‑crafted CSS, Framer Motion, Lenis (smooth scroll)  
 - **Markdown & Docs**: `react-markdown`, `remark-gfm`, `rehype-raw` for project documentation rendering  
-- **3D & Visuals**: `@react-three/fiber`, `three`, and Spline integration for future 3D scenes
+- **Icons**: React Icons for consistent iconography
 
 ### Running the Project
 
@@ -38,6 +38,31 @@ npm run dev
 ```
 
 The app runs on `http://localhost:5173` by default.
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The production build will be output to the `dist` directory.
+
+### Deployment
+
+This project is configured for GitHub Pages deployment at `https://pickledire.github.io/Portfolio/`.
+
+**Automatic Deployment:**
+- The repository includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys to GitHub Pages when changes are pushed to the `main` branch.
+- Make sure GitHub Pages is enabled in your repository settings (Settings → Pages → Source: GitHub Actions).
+
+**Manual Deployment:**
+1. Build the project: `npm run build`
+2. Push the `dist` folder to the `gh-pages` branch, or use a tool like `gh-pages`:
+   ```bash
+   npm install --save-dev gh-pages
+   npm run build
+   npx gh-pages -d dist
+   ```
 
 ### Purpose
 
