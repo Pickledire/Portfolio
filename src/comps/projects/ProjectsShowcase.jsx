@@ -51,11 +51,11 @@ const ProjectsShowcase = ({ id }) => {
         if (!config) continue
         
         try {
-          const infoResponse = await fetch(`/projects/${projectFolder}/project-info.json`)
+          const infoResponse = await fetch(`${import.meta.env.BASE_URL}projects/${projectFolder}/project-info.json`)
           
           if (infoResponse.ok) {
             const projectDetails = await infoResponse.json()
-            const imagePath = `/projects/${projectFolder}/${config.image}`
+            const imagePath = `${import.meta.env.BASE_URL}projects/${projectFolder}/${config.image}`
             
             projectData.push({
               ...projectDetails,

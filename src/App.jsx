@@ -77,7 +77,7 @@ function App() {
   // Function to download resume
   const downloadResume = (filename) => {
     const link = document.createElement('a');
-    link.href = `/${filename}`; // Files in public folder are served from root
+    link.href = `${import.meta.env.BASE_URL}${filename}`; // Files in public folder are served from base URL
     link.download = filename;
     document.body.appendChild(link);
     link.click();

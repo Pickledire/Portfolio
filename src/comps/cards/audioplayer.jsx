@@ -95,7 +95,7 @@ const CustomAudioPlayer = ({ volume = 1 }) => {
               <span>{formatTime(duration)}</span>
             </div>
           </div>
-          <audio ref={audioRef} src="/book/The Book Chapter One Draft Audio Test Two.mp3" />
+          <audio ref={audioRef} src={`${import.meta.env.BASE_URL}book/The Book Chapter One Draft Audio Test Two.mp3`} />
         </div>
       </div>
     );

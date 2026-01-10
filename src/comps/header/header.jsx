@@ -21,7 +21,7 @@ const Header = ({ id }) => {
     <>
     <div className='header' id={id}>
 
-        <img src={'/brenden.png'} alt="Brenden Edwards" className='brenden-image' />
+        <img src={`${import.meta.env.BASE_URL}brenden.png`} alt="Brenden Edwards" className='brenden-image' />
 
 
       <div className='info'>

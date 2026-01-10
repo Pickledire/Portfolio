@@ -38,7 +38,7 @@
 
 .project-image:hover {
   transform: translateY(-4px) scale(1.01);
-  cursor: url('/cursor/Naruto%20Sharingan%20Eye%20Animated--cursor--SweezyCursors..ani'), auto;
+  cursor: pointer;
 }
 
 
