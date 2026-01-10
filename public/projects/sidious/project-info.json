@@ -3,10 +3,9 @@
   "description": "A Star Wars themed web application showcasing the dark side of the Force with immersive visuals and interactive elements.",
   "features": [
     "Dark theme with atmospheric design",
-    "Interactive character profiles",
     "Animated visual effects",
     "Responsive design for all devices",
     "Immersive user experience"
   ],
-  "techStack": ["React", "CSS3", "JavaScript", "Framer Motion", "SCSS"]
+  "techStack": ["HTML5", "CSS3", "JavaScript"]
 }

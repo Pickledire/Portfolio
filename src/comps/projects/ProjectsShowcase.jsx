@@ -10,7 +10,8 @@ const ProjectsShowcase = ({ id }) => {
 
   // Ordered list of projects (this order will match the visual display)
   // Staada and Vader replaced with RPG and SW Battle Sim
-  const projectsOrder = ['partiva', 'sidious', 'folio', 'rpg', 'swbattlesim']
+  // swbattlesim and sidious swapped to adjust visual order
+  const projectsOrder = ['partiva', 'swbattlesim', 'folio', 'rpg', 'sidious']
   
   const projectsConfig = {
     partiva: {
@@ -62,15 +63,12 @@ const ProjectsShowcase = ({ id }) => {
               image: imagePath,
               colorTheme: config.colorTheme
             })
-            
-            console.log(`Loaded project ${projectData.length - 1}: ${projectFolder}`)
           }
         } catch (error) {
           console.error(`Failed to load project ${projectFolder}:`, error)
         }
       }
       
-      console.log('Final projects order:', projectData.map(p => p.folder))
       setProjects(projectData)
       setLoading(false)
     }
@@ -112,8 +110,6 @@ const ProjectsShowcase = ({ id }) => {
           
           // Check if project is in viewport (center of screen)
           if (elementRect.top <= windowHeight / 2 && elementRect.bottom >= windowHeight / 2) {
-            console.log(`Setting current project index to: ${index}`)
-            console.log(`Project at index ${index}:`, projects[index]?.folder, projects[index]?.title)
             setCurrentProjectIndex(index)
           }
         })
@@ -170,9 +166,7 @@ const ProjectsShowcase = ({ id }) => {
                 borderColor: project.colorTheme,
                 boxShadow: `0 8px 32px ${project.colorTheme}40`
               }}
-              onLoad={() => console.log(`Image loaded successfully: ${project.image}`)}
               onError={(e) => {
-                console.error(`Failed to load image: ${project.image}`)
                 e.target.style.border = '2px solid red'
                 e.target.alt = `Missing: ${project.title}`
               }}

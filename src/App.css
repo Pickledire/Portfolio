@@ -6,9 +6,26 @@
   scroll-behavior: smooth;
   text-decoration: none;
   list-style: none;
-  outline: none;
   border: none;
   overflow-x: hidden;
+}
+
+/* Accessibility: Show focus outline for keyboard navigation */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #7700ff;
+  outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
 }
 
 html, body{
@@ -27,6 +44,7 @@ html, body{
   width: 100%;
   min-height: 100vh;
   position: relative;
+  z-index: 0;
 }
 
 /* Theme switching */
@@ -54,6 +72,30 @@ html, body{
 .app.light-mode .theme-toggle:hover,
 .app.light-mode .resume-download:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+
+.app.light-mode .volume-slider-wrapper {
+  color: rgb(7, 7, 7);
+}
+
+.app.light-mode .volume-label {
+  color: rgb(7, 7, 7);
+}
+
+.app.light-mode .volume-slider {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.app.light-mode .volume-slider::-webkit-slider-thumb {
+  background: rgb(7, 7, 7);
+  border: 2px solid #1db954;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.7);
+}
+
+.app.light-mode .volume-slider::-moz-range-thumb {
+  background: rgb(7, 7, 7);
+  border: 2px solid #1db954;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.7);
 }
 
 /* Theme toggle button - top right */
@@ -178,6 +220,50 @@ html, body{
   background: #ffffff;
   border: 2px solid #1db954;
   box-shadow: 0 0 10px rgba(22, 163, 74, 0.7);
+}
+
+/* Music play/pause button - below resume button */
+.music-play-pause-btn {
+  position: fixed;
+  top: 150px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1db954 0%, #16a34a 100%);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+}
+
+.music-play-pause-btn:hover {
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+  transform: scale(1.05);
+}
+
+.music-play-pause-btn:active {
+  transform: scale(0.95);
+}
+
+/* Light mode styling for music play/pause button */
+.app.light-mode .music-play-pause-btn {
+  background: linear-gradient(135deg, #1db954 0%, #16a34a 100%);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  color: #ffffff;
+}
+
+.app.light-mode .music-play-pause-btn:hover {
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
 }
 
 /* Bento section styling */

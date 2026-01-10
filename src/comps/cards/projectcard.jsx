@@ -56,7 +56,6 @@ const ProjectCard = ({ projects = [], currentProjectIndex = 0, onProjectChange }
 
     const handleSeeMore = () => {
         // You can add logic here to open project details, navigate to project page, etc.
-        console.log('See more clicked for:', currentProject.title)
         // Example: window.open(`/projects/${currentProject.folder}`, '_blank')
     }
 

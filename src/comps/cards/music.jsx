@@ -5,7 +5,8 @@ import './music.css'
 const DEFAULT_SPOTIFY_PLAYLIST_ID = '5JqfYwWJyi6JlcsoFVJHdp' // fallback; replace freely
 
 const Music = ({ playlistId = DEFAULT_SPOTIFY_PLAYLIST_ID }) => {
-    const src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`
+    // Add controls parameter to enable player controls in embed
+    const src = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0&controls=true`
     return (
         <div className='music-container'>
             <div className='spotify-embed-wrapper'>
@@ -17,6 +18,7 @@ const Music = ({ playlistId = DEFAULT_SPOTIFY_PLAYLIST_ID }) => {
                     frameBorder="0"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
+                    allowFullScreen
                 ></iframe>
             </div>
         </div>

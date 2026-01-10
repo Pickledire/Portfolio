@@ -7,32 +7,69 @@ import { IoMdClose } from 'react-icons/io'
 
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [messageLength, setMessageLength] = useState(0);
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const openGithub = () => {
-    window.open('https://github.com/Pickledire', '_blank');
+    window.open('https://github.com/Pickledire', '_blank', 'noopener,noreferrer');
   };
 
   const openLinkedIn = () => {
-    window.open('https://www.linkedin.com/in/brenden-edwards-889b141a9/', '_blank');
+    window.open('https://www.linkedin.com/in/brenden-edwards-889b141a9/', '_blank', 'noopener,noreferrer');
   };
 
   const openTwitter = () => {
-    window.open('https://x.com/Pickledire', '_blank');
+    window.open('https://x.com/Pickledire', '_blank', 'noopener,noreferrer');
   };
 
   const openModal = () => {
     setIsModalOpen(true);
+    setFormStatus({ type: '', message: '' });
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setMessageLength(0);
+    setFormStatus({ type: '', message: '' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted');
-    // You can add your form submission logic here
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
+
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
+    };
+
+    try {
+      // Using Formspree for form handling - replace YOUR_FORM_ID with actual ID
+      // Sign up at https://formspree.io to get a form endpoint
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' });
+        e.target.reset();
+        setMessageLength(0);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setFormStatus({ type: 'error', message: 'Failed to send message. Please try again or email me directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,12 +124,20 @@ const Footer = () => {
                   placeholder='What would you like to discuss?' 
                   required
                   rows={5}
+                  maxLength={1000}
+                  onChange={(e) => setMessageLength(e.target.value.length)}
                 ></textarea>
-                <span className='char-count'>0/1000</span>
+                <span className='char-count'>{messageLength}/1000</span>
               </div>
 
-              <button type='submit' className='send-btn'>
-                📧 Send message
+              {formStatus.message && (
+                <div className={`form-status ${formStatus.type}`}>
+                  {formStatus.message}
+                </div>
+              )}
+
+              <button type='submit' className='send-btn' disabled={isSubmitting}>
+                {isSubmitting ? '⏳ Sending...' : '📧 Send message'}
               </button>
             </form>
           </div>

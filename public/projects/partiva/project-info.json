@@ -8,5 +8,5 @@
       "Guest management and RSVP tracking",
       "Budget tracking and expense management"
     ],
-    "techStack": ["React", "Node.js", "MongoDB", "Express", "Socket.io", "Tailwind CSS"]
+    "techStack": ["React", "Node.js", "Tailwind CSS", "React Router"]
   }

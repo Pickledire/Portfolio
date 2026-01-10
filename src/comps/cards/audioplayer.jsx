@@ -11,27 +11,39 @@ const CustomAudioPlayer = ({ volume = 1 }) => {
   
     useEffect(() => {
       const audio = audioRef.current;
+      if (!audio) return;
       
       const updateTime = () => {
-        setCurrentTime(audio.currentTime);
-        setProgress((audio.currentTime / audio.duration) * 100);
+        if (audio.duration && !isNaN(audio.duration)) {
+          setCurrentTime(audio.currentTime);
+          setProgress((audio.currentTime / audio.duration) * 100);
+        }
       };
   
       const updateDuration = () => {
-        setDuration(audio.duration);
+        if (audio.duration && !isNaN(audio.duration)) {
+          setDuration(audio.duration);
+          // Only seek if audio is long enough (20 minutes = 1200 seconds)
+          if (audio.duration > 1200) {
+            audio.currentTime = 1200;
+          }
+        }
+      };
+
+      const handleError = () => {
+        // Audio failed to load - gracefully handle
+        setDuration(0);
+        setProgress(0);
       };
   
-      if (audio) {
-        audio.addEventListener('timeupdate', updateTime);
-        audio.addEventListener('loadedmetadata', updateDuration);
-        audio.currentTime = 1200; // Start at 20 minutes
-      }
+      audio.addEventListener('timeupdate', updateTime);
+      audio.addEventListener('loadedmetadata', updateDuration);
+      audio.addEventListener('error', handleError);
   
       return () => {
-        if (audio) {
-          audio.removeEventListener('timeupdate', updateTime);
-          audio.removeEventListener('loadedmetadata', updateDuration);
-        }
+        audio.removeEventListener('timeupdate', updateTime);
+        audio.removeEventListener('loadedmetadata', updateDuration);
+        audio.removeEventListener('error', handleError);
       };
     }, []);
 
@@ -62,15 +74,20 @@ const CustomAudioPlayer = ({ volume = 1 }) => {
     return (
       <div className="book-content">
         <div className="book-info">
-        <h3>My Book</h3>
-        <p>This is a short snippet of my book. It's a work in progress but if you're interested in reading it, you can contact me and I will send you a link!</p>
+          <p className="book-description">An excerpt from my current writing project. This audio sample offers a preview of the narrative style and themes I'm exploring.</p>
+          <p className="book-meta">For access to the full manuscript or to discuss collaboration opportunities, please reach out through the contact section.</p>
         </div>
+        <div className="book-divider"></div>
         <div className="custom-audio-player">
-          <button className="play-btn" onClick={togglePlay}>
+          <button 
+            className="play-btn" 
+            onClick={togglePlay}
+            aria-label={isPlaying ? 'Pause audio' : 'Play audio'}
+          >
             {isPlaying ? '⏸' : '▶'}
           </button>
           <div className="progress-container">
-            <div className="progress-bar">
+            <div className="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100">
               <div className="progress-fill" style={{width: `${progress}%`}}></div>
             </div>
             <div className="time-display">

@@ -8,5 +8,5 @@
       "Inventory and equipment management",
       "Interactive game world exploration"
     ],
-    "techStack": ["JavaScript", "HTML5", "CSS3", "Local Storage", "Canvas API"]
+    "techStack": ["Python", "Colorama", "Rich"]
   }

@@ -13,12 +13,28 @@ export const initLenis = () => {
     infinite: false,
   });
 
+  let rafId;
+  
   const raf = (time) => {
     lenis.raf(time);
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
   };
 
-  requestAnimationFrame(raf);
+  rafId = requestAnimationFrame(raf);
+  
+  // Store the original destroy method
+  const originalDestroy = lenis.destroy?.bind(lenis);
+  
+  // Override destroy to also cancel the animation frame
+  lenis.destroy = () => {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    if (originalDestroy) {
+      originalDestroy();
+    }
+  };
   
   return lenis;
-}; 
+};

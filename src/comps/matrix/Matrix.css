@@ -1,0 +1,104 @@
+.matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.matrix-canvas.active {
+  opacity: 1;
+}
+
+.matrix-section {
+  position: relative;
+  width: 100%;
+  min-height: 30vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.matrix-container {
+  position: relative;
+  width: 100%;
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  overflow: visible;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.matrix-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.matrix-question {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.matrix-escape-btn {
+  min-width: 50px;
+  width: auto;
+  height: 50px;
+  padding: 0 1.5rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.matrix-escape-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+
+/* Light mode styling - hide Matrix component */
+.light-mode .matrix-section {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .matrix-question {
+    font-size: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  .matrix-escape-btn {
+    height: 45px;
+    padding: 0 1.25rem;
+    font-size: 0.65rem;
+  }
+}
+

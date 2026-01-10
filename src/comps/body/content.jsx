@@ -1,12 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './content.css'
-import ProjectCard from '../cards/projectcard'
-import InfoCard from '../cards/infocard'
-import LocationCard from '../cards/locationcard'
-import { SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiNodedotjs, SiGit, SiGithub, SiVercel, SiFigma } from 'react-icons/si'
-import Skills from '../cards/skills'
 import Bento from '../cards/bento'
-import AboutMeCard from '../cards/aboutmecard'
 
 const Content = ({ id, bentoId, audioVolume = 1 }) => {
   return (

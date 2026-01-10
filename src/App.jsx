@@ -4,12 +4,10 @@ import Header from './comps/header/header'
 import Content from './comps/body/content'
 import Footer from './comps/footer/footer'
 import './comps/nav/nav.css'
-import { BsFillHouseDoorFill } from 'react-icons/bs'
-import { BsFileCodeFill } from 'react-icons/bs'
-import { BsEnvelopeFill } from 'react-icons/bs'
-import { BsFilePdfFill } from 'react-icons/bs'
-import { BsSun, BsMoon } from 'react-icons/bs'
+import { BsFilePdfFill, BsSun, BsMoon, BsPlayFill, BsPauseFill } from 'react-icons/bs'
 import ProjectsShowcase from './comps/projects/ProjectsShowcase'
+import Matrix from './comps/matrix/Matrix'
+import MatrixCanvas from './comps/matrix/MatrixCanvas'
 import { initLenis } from './utils/lenis'
 
 function App() {
@@ -17,6 +15,33 @@ function App() {
   const [lenis, setLenis] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [globalVolume, setGlobalVolume] = useState(0.7);
+  const [matrixActive, setMatrixActive] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+  // Function to control Spotify embed play/pause
+  const controlSpotify = (action) => {
+    const spotifyFrame = document.querySelector('iframe[title="Spotify Playlist"]');
+    if (!spotifyFrame || !spotifyFrame.contentWindow) return;
+
+    try {
+      // Try multiple message formats
+      const messages = [
+        { command: action, type: 'command' },
+        { action: action, method: action },
+        { type: 'spotify-command', command: action }
+      ];
+
+      messages.forEach(msg => {
+        try {
+          spotifyFrame.contentWindow.postMessage(msg, '*');
+        } catch (e) {
+          // Silently fail
+        }
+      });
+    } catch (e) {
+      // Silently handle errors
+    }
+  };
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
@@ -33,32 +58,26 @@ function App() {
 
   // Function to scroll to element smoothly using Lenis
   const scrollToElement = (elementId) => {
-    console.log('Trying to scroll to:', elementId);
     const element = document.getElementById(elementId);
-    console.log('Element found:', element);
     
     if (element && lenis) {
-      console.log('Using Lenis to scroll');
       lenis.scrollTo(element, {
         offset: 0,
         duration: 1.2
       });
     } else if (element) {
-      console.log('Using fallback scroll');
       // Fallback for when Lenis isn't ready
       element.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
-    } else {
-      console.log('Element not found!');
     }
   };
 
   // Function to download resume
   const downloadResume = (filename) => {
     const link = document.createElement('a');
-    link.href = `/public/${filename}`; // Adjust path as needed
+    link.href = `/${filename}`; // Files in public folder are served from root
     link.download = filename;
     document.body.appendChild(link);
     link.click();
@@ -67,7 +86,12 @@ function App() {
 
   // Function to toggle theme
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    // Disable matrix effect when switching to light mode
+    if (!newDarkMode && matrixActive) {
+      setMatrixActive(false);
+    }
   };
 
   // Scroll detection to set active section with Lenis
@@ -101,8 +125,9 @@ function App() {
   }, [lenis]);
   return (
     <>
-    
     <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      {/* Matrix canvas - covers entire page */}
+      <MatrixCanvas isActive={matrixActive && isDarkMode} />
       {/* Night/Day Mode Toggle - Top Right */}
       <button className='theme-toggle' onClick={toggleTheme}>
         {isDarkMode ? <BsSun /> : <BsMoon />}
@@ -126,6 +151,18 @@ function App() {
           className='volume-slider'
         />
       </div>
+
+      {/* Music play/pause button - below resume button */}
+      <button 
+        className='music-play-pause-btn'
+        onClick={() => {
+          setIsMusicPlaying(!isMusicPlaying);
+          controlSpotify(isMusicPlaying ? 'pause' : 'play');
+        }}
+        aria-label={isMusicPlaying ? 'Pause' : 'Play'}
+      >
+        {isMusicPlaying ? <BsPauseFill /> : <BsPlayFill />}
+      </button>
 
       <div className='nav'>
         <button 
@@ -156,6 +193,13 @@ function App() {
       <Header id="home" />
       <ProjectsShowcase id="projects" />
       <Content id="contact" bentoId="bento" audioVolume={globalVolume} />
+      <Matrix onToggle={(newState) => {
+        // Only allow activation in dark mode
+        if (newState && !isDarkMode) {
+          return;
+        }
+        setMatrixActive(newState);
+      }} isActive={matrixActive} />
       <Footer />
     </div>
     </>

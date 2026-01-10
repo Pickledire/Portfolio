@@ -1,35 +1,20 @@
 import React from 'react'
 import './header.css'
-import Spline from '@splinetool/react-spline'
 import '@fontsource/press-start-2p'
-import { BsGithub } from 'react-icons/bs'
-import { BsLinkedin } from 'react-icons/bs'
-import { BsTwitterX } from 'react-icons/bs'
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiJavascript,
-  SiTailwindcss, 
-  SiNodedotjs, 
-  SiGit, 
-  SiGithub, 
-  SiVercel 
-} from 'react-icons/si'
+import { BsGithub, BsLinkedin, BsTwitterX } from 'react-icons/bs'
 import Skills from '../cards/skills'
-import Bento from '../cards/bento'
 
 const Header = ({ id }) => {
   const openGithub = () => {
-    window.open('https://github.com/Pickledire', '_blank');
+    window.open('https://github.com/Pickledire', '_blank', 'noopener,noreferrer');
   };
 
   const openLinkedIn = () => {
-    window.open('https://www.linkedin.com/in/brenden-edwards-889b141a9/', '_blank');
+    window.open('https://www.linkedin.com/in/brenden-edwards-889b141a9/', '_blank', 'noopener,noreferrer');
   };
 
   const openTwitter = () => {
-    window.open('https://x.com/Pickledire', '_blank');
+    window.open('https://x.com/Pickledire', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -41,9 +26,9 @@ const Header = ({ id }) => {
 
       <div className='info'>
           <div className='info-text'>
-            <h1 className='info-title'><span className='sauce'>Future</span> <span className='underlined'>Frontend Developer</span></h1>
+            <h2 className='info-title'><span className='sauce'>Future</span> <span className='underlined'>Frontend Developer</span></h2>
             <span>I create beautiful and functional websites.</span> <br />
-            <span>USA, Arkansas 📍</span>
+            <span>📍 USA, Arkansas</span>
           </div>
           <div className='btn-container'>
             <button className='btn-header' onClick={openGithub}><BsGithub /></button>
