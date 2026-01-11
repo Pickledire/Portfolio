@@ -7,6 +7,7 @@
     width: 100%;
     z-index: 10;
     pointer-events: none;
+    margin-top: 150px;
 }
 
 .skills-main-title{
@@ -35,8 +36,8 @@
 .tech-grid{
     display: grid;
     min-width: 35%;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(60px, 8vw, 150px), 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(60px, 8vw, 80px), 1fr));
+    gap: 5px;
 }
 
 .tech-item{

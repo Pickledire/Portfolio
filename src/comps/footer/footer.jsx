@@ -74,7 +74,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className='footer' id='3'>
+      <div className='footer' id='contact'>
         <div className='footer-content'>
           <h1>FROM CONCEPT TO <span className='creation-highlight'>CREATION</span></h1>
           <h2>LET'S MAKE IT HAPPEN!</h2>

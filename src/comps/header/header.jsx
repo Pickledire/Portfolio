@@ -26,7 +26,7 @@ const Header = ({ id }) => {
 
       <div className='info'>
           <div className='info-text'>
-            <h2 className='info-title'><span className='sauce'>Future</span> <span className='underlined'>Frontend Developer</span></h2>
+            <h2 className='info-title'><span className='sauce'>Frontend</span> <span className='underlined'>Developer</span></h2>
             <span>I create beautiful and functional websites.</span> <br />
             <span>📍 USA, Arkansas</span>
           </div>

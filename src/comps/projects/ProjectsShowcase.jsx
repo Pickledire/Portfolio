@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './ProjectsShowcase.css'
 
-const ProjectsShowcase = ({ id }) => {
+const ProjectsShowcase = ({ id, onInfoVisibilityChange }) => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
   const [showText, setShowText] = useState(false)
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [activeProjectForModal, setActiveProjectForModal] = useState(null)
+  const [animationKey, setAnimationKey] = useState(0)
 
   // Ordered list of projects (this order will match the visual display)
   // Staada and Vader replaced with RPG and SW Battle Sim
@@ -87,6 +88,11 @@ const ProjectsShowcase = ({ id }) => {
       // More restrictive thresholds - show later, hide earlier
       const isInSection = rect.top < windowHeight * 0.5 && rect.bottom > windowHeight * 0.6
       setShowText(isInSection)
+      
+      // Notify parent about visibility change
+      if (onInfoVisibilityChange) {
+        onInfoVisibilityChange(isInSection)
+      }
 
       // Handle fade in/out for all images
       const projectElements = document.querySelectorAll('.project-item')
@@ -110,7 +116,9 @@ const ProjectsShowcase = ({ id }) => {
           
           // Check if project is in viewport (center of screen)
           if (elementRect.top <= windowHeight / 2 && elementRect.bottom >= windowHeight / 2) {
-            setCurrentProjectIndex(index)
+            if (index !== currentProjectIndex) {
+              setCurrentProjectIndex(index)
+            }
           }
         })
       }
@@ -121,7 +129,14 @@ const ProjectsShowcase = ({ id }) => {
     handleScroll()
     
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [projects])
+  }, [projects, currentProjectIndex])
+
+  // Reset animations when project changes
+  useEffect(() => {
+    if (projects.length > 0 && showText) {
+      setAnimationKey(prev => prev + 1)
+    }
+  }, [currentProjectIndex, showText, projects.length])
 
   const currentProject = projects[currentProjectIndex] || {}
 
@@ -185,7 +200,7 @@ const ProjectsShowcase = ({ id }) => {
         className={`project-text-sticky ${showText ? 'show' : 'hide'}`}
         style={{ '--theme-color': currentProject?.colorTheme }}
       >
-        <div className='project-text-content'>
+        <div className='project-text-content' key={animationKey}>
           <h2 className='project-title'>
             My Curated <span className='highlight-text'>work</span>
           </h2>
@@ -196,7 +211,7 @@ const ProjectsShowcase = ({ id }) => {
             
             <div className='project-features'>
               {currentProject?.features?.map((feature, index) => (
-                <div key={index} className='feature-item'>
+                <div key={`${animationKey}-feature-${index}`} className='feature-item'>
                   <span className='feature-bullet'>+</span>
                   <span className='feature-text'>{feature}</span>
                 </div>
@@ -205,7 +220,7 @@ const ProjectsShowcase = ({ id }) => {
 
             <div className='tech-stack'>
               {currentProject?.techStack?.map((tech, index) => (
-                <span key={index} className='tech-badge'>{tech}</span>
+                <span key={`${animationKey}-tech-${index}`} className='tech-badge'>{tech}</span>
               ))}
             </div>
           </div>

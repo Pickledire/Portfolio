@@ -1,20 +1,25 @@
+.bento-section {
+    overflow: visible;
+}
+
 .bento-container {
     width: 100%;
     max-width: 1200px;
-    padding: 80px 60px;
-    margin-top: 60px;
+    padding: clamp(30px, 8vw, 80px) clamp(15px, 5vw, 60px);
+    margin-top: clamp(30px, 6vw, 60px);
     overflow: visible;
 }
 
 .bento-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: clamp(30px, 6vw, 60px);
 }
 
 
 .bento-title {
-    font-size: 48px;
+    font-size: clamp(28px, 6vw, 48px);
     font-weight: 600;
+    padding: 10px;
     margin: 16px 0 0 0;
     line-height: 1.2;
     color: #ffffff;
@@ -24,7 +29,7 @@
     animation: highlight 5s infinite linear;
     background: linear-gradient(45deg, #7700ff, #e100ff, #ffb88f, #ffdca9);
     background-size: 200% 100%;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     padding: 5px;
     font-family: cursive;
     -webkit-background-clip: text;
@@ -43,17 +48,20 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 320px 200px;
-    gap: 20px;
+    gap: clamp(12px, 2vw, 20px);
     grid-template-areas:
         "book book quote music"
         "github github github music";
     overflow: visible;
+    border-radius: 25px;    
+    padding: 12px;
+    background: radial-gradient(ellipse, #1db954 40%, transparent 60%, transparent 100%);
 }
 
 .bento-card {
     background: #000000;
     position: relative;
-    overflow: visible;
+    overflow: visible !important;
     transition: all 0.3s ease;
     cursor: pointer;
     border-radius: 25px;
@@ -66,6 +74,7 @@
     border-radius: 22px;
     z-index: 0;
     pointer-events: none;
+    box-shadow: 0 0 50px rgb(0, 0, 0);
 }
 
 
@@ -82,7 +91,6 @@
     #1db954 50%,
     #1db954 80%,
     #070707 110%);
-    background-position: 10% 100%;
     background-size: 100% 100%;
 }
 
@@ -97,6 +105,7 @@
         #000000 90%,
         #0a0a0a 96%,
         #070707 100%);
+    overflow: visible !important;
 }
 
 
@@ -106,6 +115,7 @@
 
 .github-card {
     background: transparent;
+    overflow: visible !important;
 }
 
 .bento-card > * {
@@ -133,7 +143,7 @@
 
 .quote-card {
     position: relative;
-    overflow: hidden;
+    overflow: visible  ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,27 +191,82 @@
 
 
 
-/* Responsive styling for quote card */
+/* Mobile layout - stack cards vertically */
 @media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "book"
+            "music"
+            "quote";
+    }
+
+    .bento-card {
+        overflow: hidden;
+    }
+
+    .book-card {
+        min-height: 320px;
+    }
+
+    .music-card {
+        grid-row: span 1;
+        min-height: 420px;
+    }
+
     .quote-card {
-        padding: 1.5rem;
-        min-height: 150px;
+        padding: clamp(1rem, 4vw, 1.5rem);
+        min-height: 180px;
     }
     
     .quote-card p:first-child {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     .quote-card p:first-child::before {
-        font-size: 2rem;
-        top: -0.5rem;
+        font-size: 1.5rem;
+        top: -0.25rem;
         left: -0.5rem;
     }
+
+    .quote-card p:last-child {
+        font-size: clamp(0.8rem, 3vw, 0.95rem);
+    }
+}
+
+/* Even smaller screens */
+@media (max-width: 480px) {
+    .bento-container {
+        padding: clamp(20px, 5vw, 30px) clamp(10px, 3vw, 15px);
+        overflow: visible;
+    }
+
+    .book-card {
+        min-height: 350px;
+    }
+
+    .music-card {
+        min-height: 380px;
+    }
+
+    .quote-card {
+        padding: clamp(0.75rem, 3vw, 1rem);
+        min-height: 160px;
+    }
+
+    .quote-card p:first-child {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+
 }
 
 /* Light mode styling */
 .light-mode .bento-container {
     background-color: #ffffff;
+    overflow: visible;
 }
 
 .light-mode .bento-title {
@@ -210,6 +275,7 @@
 
 .light-mode .bento-card {
     background: transparent;
+    overflow: visible;
 }
 
 
@@ -234,16 +300,6 @@
 }
 
 .github-card {
-    background: linear-gradient(135deg,
-        #070707 0%,
-        #0a0a0a 15%,
-        #000000 23%,
-        #1db95493 35%,
-        #1db95498 50%,
-        #1db954a2 70%,
-        #000000 90%,
-        #0a0a0a 96%,
-        #070707 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,4 +316,12 @@
 }
 .github-card .react-activity-calendar__footer {
     color: #ffffff;
+}
+
+/* Hide github card on mobile - placed after main .github-card styles to ensure it takes effect */
+@media (max-width: 768px) {
+    .github-card {
+        display: none;
+        transition: all 0.3s ease;
+    }
 }

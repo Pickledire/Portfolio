@@ -17,6 +17,7 @@ function App() {
   const [globalVolume, setGlobalVolume] = useState(0.7);
   const [matrixActive, setMatrixActive] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [projectInfoVisible, setProjectInfoVisible] = useState(false);
 
   // Function to control Spotify embed play/pause
   const controlSpotify = (action) => {
@@ -129,18 +130,18 @@ function App() {
       {/* Matrix canvas - covers entire page */}
       <MatrixCanvas isActive={matrixActive && isDarkMode} />
       {/* Night/Day Mode Toggle - Top Right */}
-      <button className='theme-toggle' onClick={toggleTheme}>
+      <button className={`theme-toggle ${projectInfoVisible ? 'hide-on-tablet' : ''}`} onClick={toggleTheme}>
         {isDarkMode ? <BsSun /> : <BsMoon />}
       </button>
 
       {/* Download Resume Button - Top Right, below theme toggle */}
-      <button className='resume-download' onClick={() => downloadResume('resume.pdf')}>
+      <button className={`resume-download ${projectInfoVisible ? 'hide-on-tablet' : ''}`} onClick={() => downloadResume('resume.pdf')}>
         <BsFilePdfFill />
       </button>
 
       {/* Music play/pause button - below resume button */}
       <button 
-        className='music-play-pause-btn'
+        className={`music-play-pause-btn ${projectInfoVisible ? 'hide-on-tablet' : ''}`}
         onClick={() => {
           setIsMusicPlaying(!isMusicPlaying);
           controlSpotify(isMusicPlaying ? 'pause' : 'play');
@@ -177,8 +178,8 @@ function App() {
         </button>
       </div>
       <Header id="home" />
-      <ProjectsShowcase id="projects" />
-      <Content id="contact" bentoId="bento" audioVolume={globalVolume} />
+      <ProjectsShowcase id="projects" onInfoVisibilityChange={setProjectInfoVisible} />
+      <Content bentoId="bento" audioVolume={globalVolume} />
       <Matrix onToggle={(newState) => {
         // Only allow activation in dark mode
         if (newState && !isDarkMode) {

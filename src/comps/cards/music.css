@@ -191,3 +191,14 @@
 .control-btn.play:hover {
     background: #1ed760;
 }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .music-container {
+        border-radius: 12px;
+    }
+
+    .spotify-embed-wrapper {
+        border-radius: 12px;
+    }
+}
