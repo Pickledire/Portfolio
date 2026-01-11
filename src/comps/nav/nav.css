@@ -2,13 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
-    min-width: 500px;
+    width: clamp(315px, 50%, 500px);
     height: 60px;
     position: fixed;
     top: 30px;
     z-index: 100;
-    padding: 0 40px;
+    padding: 0 clamp(10px, 2vw, 40px);
     border-radius: 30px;
     background: rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 0 50px rgba(194, 194, 194, 0.1);
@@ -25,8 +24,8 @@
     text-decoration: none;
     color: #ffffff;
     background: transparent;
-    font-size: 1rem;
-    padding: 8px 12px;
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+    padding: clamp(0.8rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
     border-radius: 25px;
     cursor: pointer;
     pointer-events: all !important;

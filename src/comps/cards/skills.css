@@ -35,8 +35,7 @@
 .tech-grid{
     display: grid;
     min-width: 35%;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(clamp(60px, 8vw, 150px), 1fr));
     gap: 10px;
 }
 
@@ -53,12 +52,11 @@
 
 
 .tech-icon{
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
 }
 
 .gradient-line-2 {
-    width: 35%;
-    min-width: 625px;
+    width: clamp(200px, 50%, 750px);
     height: 4px;
     background: linear-gradient(90deg, #7700ff, #e100ff, #ffb88f, #ffdca9);
     background-size: 200% 100%;

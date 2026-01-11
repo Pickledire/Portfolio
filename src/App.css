@@ -101,15 +101,15 @@ html, body{
 /* Theme toggle button - top right */
 .theme-toggle {
   position: fixed;
-  top: 30px;
+  top: 100px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: clamp(40px, 5vw, 50px);
+  height: clamp(40px, 5vw, 50px);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -128,15 +128,15 @@ html, body{
 /* Resume download button - below theme toggle */
 .resume-download {
   position: fixed;
-  top: 90px;
+  top: 160px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: clamp(40px, 5vw, 50px);
+  height: clamp(40px, 5vw, 50px);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -225,15 +225,15 @@ html, body{
 /* Music play/pause button - below resume button */
 .music-play-pause-btn {
   position: fixed;
-  top: 150px;
+  top: 220px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: clamp(40px, 5vw, 50px);
+  height: clamp(40px, 5vw, 50px);
   border-radius: 50%;
   background: linear-gradient(135deg, #1db954 0%, #16a34a 100%);
   border: 1px solid rgba(29, 185, 84, 0.3);
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   cursor: pointer;
   display: flex;
   align-items: center;

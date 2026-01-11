@@ -138,20 +138,6 @@ function App() {
         <BsFilePdfFill />
       </button>
 
-      {/* Global audio volume slider */}
-      <div className='volume-slider-wrapper'>
-        <span className='volume-label'>VOLUME</span>
-        <input
-          type='range'
-          min='0'
-          max='1'
-          step='0.01'
-          value={globalVolume}
-          onChange={(e) => setGlobalVolume(parseFloat(e.target.value))}
-          className='volume-slider'
-        />
-      </div>
-
       {/* Music play/pause button - below resume button */}
       <button 
         className='music-play-pause-btn'
